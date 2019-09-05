@@ -22,5 +22,8 @@ notifications.createNotificaton = async function({ accountId, name, color }) {
   }
 };
 
+notifications.getNotificationsByAccountId = function(accountId) {
+  return NotificationMoodel.find({ accountId }).exec();
+};
 
 module.exports = notifications;

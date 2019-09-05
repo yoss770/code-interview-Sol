@@ -16,6 +16,16 @@ router.post("/", async function(req, res, next) {
   }
 });
 
-
+router.get("/", async function(req, res, next) {
+  try {
+    const { accountId } = req.query;
+    const notifiList = await notifications.getNotificationsByAccountId(
+      accountId
+    );
+    return res.send(notifiList);
+  } catch (error) {
+    return res.send({ error });
+  }
+});
 
 module.exports = router;
