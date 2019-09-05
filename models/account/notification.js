@@ -18,7 +18,7 @@ notifications.createNotificaton = async function({ accountId, name, color }) {
     const notification = new NotificationMoodel({ accountId, name, color });
     await notification.save();
   } catch (e) {
-    return e;
+    throw e;
   }
 };
 

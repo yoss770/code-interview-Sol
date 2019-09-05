@@ -1,4 +1,4 @@
-const Accounts = require("../../models/account/Account");
+const Accounts = require("../../models/account/account");
 const express = require("express");
 const router = express.Router();
 
@@ -17,12 +17,8 @@ router.post("/", async function(req, res, next) {
     return res.send({ message: "success" });
   } catch (error) {
     const message = error.message;
-    if (/email_\d+ dup key/.test(message)) {
-      return res.send({ error: "email already exists" });
-    } else {
-      return res.send({ error: message });
     }
-  }
+
 });
 
 module.exports = router;

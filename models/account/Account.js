@@ -28,7 +28,7 @@ accounts.createAcc = async function({ email, name, age }) {
     await account.save();
     return true;
   } catch (e) {
-    return false;
+    throw false;
   }
 };
 
