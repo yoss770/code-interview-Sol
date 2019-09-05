@@ -26,4 +26,11 @@ notifications.getNotificationsByAccountId = function(accountId) {
   return NotificationMoodel.find({ accountId }).exec();
 };
 
+notifications.removeNotificationsByAccountIdAndColor = function(
+  accountId,
+  color
+) {
+  return NotificationMoodel.remove({ accountId, color }).exec();
+};
+
 module.exports = notifications;

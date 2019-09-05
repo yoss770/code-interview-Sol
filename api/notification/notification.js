@@ -28,4 +28,19 @@ router.get("/", async function(req, res, next) {
   }
 });
 
+router.delete("/", async function(req, res, next) {
+  try {
+    const { accountId, color } = req.query;
+    const result = await notifications.removeNotificationsByAccountIdAndColor(
+      accountId,
+      color
+    );
+    return res.send({
+      message: `success, delete ${result.deletedCount} documents`
+    });
+  } catch (error) {
+    return res.send({ error });
+  }
+});
+
 module.exports = router;
